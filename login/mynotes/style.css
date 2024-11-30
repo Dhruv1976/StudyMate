@@ -1,0 +1,265 @@
+
+#buttonsContainer {
+    margin-top: 20px;
+}
+
+#uploadButton,
+#createFolder {
+    padding: 10px 22px;
+    font-size: 14px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#uploadButton:hover,
+#createFolder:hover {
+    background-color: #0056b3;
+}
+
+#buttonContainer button {
+    margin-right: 10px;
+}
+
+#buttonContainer {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+#folders {
+    margin: 20px auto;
+    width: 90%;
+    max-width: 1200px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+#dirPath {
+
+    
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 5px
+}
+
+#hrdir {
+    display: block;
+    /* height: 1px; */
+    border-top: 1px solid #ccc;
+    margin-top: 0px !important;
+    margin-bottom: 1px;
+    padding: 0;
+    
+    
+    
+}
+.return{
+    padding: 6px 7px;
+    border: none;
+    font-size: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    
+}
+.dirPI{
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+}
+.return:hover {
+    background-color: #0056b3;
+}
+#searchContainer {
+    margin-bottom: 15px;
+    
+    display: flex;
+    align-items: center;
+}
+
+#searchInput {
+    flex: 1;
+    padding: 10px;
+    
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /* padding-right: 10px; */
+    font-size: 16px;
+    outline: none;
+}
+
+#searchButton {
+    padding: 12px 20px;
+    border: none;
+    margin-left: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#searchButton:hover {
+    background-color: #0056b3;
+}
+
+#folderContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px;
+}
+
+.folderIcon,
+.fileIcon {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.folderIcon:hover .folderButton,
+.fileIcon:hover .fileButton {
+    display: inline-block;
+}
+
+.folderIcon:hover,
+.fileIcon:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.folderIcon i,
+.fileIcon i {
+    font-size: 48px;
+    color: #137dc5;
+}
+
+.folderName,
+.fileName {
+    margin-top: 10px;
+    text-align: center;
+    color: #333;
+
+    overflow-wrap: anywhere;     
+}
+
+
+.folderButton:hover,
+.fileButton:hover {
+    background-color: #0056b3;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    width: 60%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#uploadFileButton{
+  color: black; 
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+input[type="file"]::file-selector-button {
+    color: black; 
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    
+  }
+  
+  
+
+
+@media (max-width: 768px) {
+    #folderContainer {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .folderIcon,
+    .fileIcon {
+        height: 120px;
+    }
+
+    .folderIcon i,
+    .fileIcon i {
+        font-size: 36px;
+    }
+
+    .folderName,
+    .fileName {
+        margin-top: 5px;
+        font-size: 14px;
+    }
+}
+
+.iconcont {
+    padding: 100v;
+}
+
+.iconcont .deleteButton,
+.iconcont .downloadButton {
+    padding: 6px 12px;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    display: none;
+}
+
+.iconcont .deleteButton:hover,
+.iconcont .downloadButton:hover {
+    background-color: rgba(229, 229, 229, 0.9);
+}
+
+.iconcont .deleteButton img,
+.iconcont .downloadButton img {
+    margin-right: 5px;
+}

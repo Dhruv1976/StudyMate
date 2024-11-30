@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudyMate</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <div class="logo_name">
+        <div class="logo"><img src="logo.png" alt="StudyMate Logo"></div>
+        <div><a href="/studyMate/src/login/index.html" name="logo"> StudyMate </a></div>
+      </div>
+      <ul class=" link">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#services-heading"  class="scroll-link">Services</a></li>
+        <li><a href="#" id="contactBtn">Contact Us</a></li>
+      </ul>
+      <a href="form/form.html" class="action_btn">Get Started</a>
+      <div class="toggle_btn"><i class="fa-solid fa-bars"></i></div>
+    </div>
+    </div>
+    <div class="dropdown_menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#services-heading"  class="scroll-link">Services</a></li>
+      <li><a href="#" id="contactBtn2">Contact Us</a></li>
+      <li><a href="form/form.html" class="action_btn">Get Started</a></li>
+    </div>
+  </header>
+  <div class="content_body">
+    <div class="moto">
+      <h1>Welcome to StudyMate</h1>
+      <p>Share and find study notes, collaborate with classmates, and ace your exams.
+      <p>
+
+      <div class="popup-container" id="contactPopup">
+
+        <div class="popup-content" id="contactForm">
+          <span class="close-button" onclick="closeContactForm()"><i class="fa-solid fa-xmark"></i></span>
+          <h2>Contact Us</h2>
+          <form action="contactMail.php" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            <input type="submit" value="Submit">
+          </form>
+        </div>
+      </div>
+      <div class="popup-container" id="thankYouPopup" style="display: none;">
+        <div class="popup-content">
+          <h2>Thank you for contacting us!</h2>
+          <p>We will get back to you as soon as possible.</p>
+          <span class="close-button" onclick="closeThankYouPopup()"><i class="fa-solid fa-xmark"></i></span>
+
+        </div>
+      </div>
+
+
+
+    </div>
+    <div class="actn_btn"><a href="form/form.html" class="maction_btn">Get Started</a></div>
+    <div class="image-placeholder">
+      <img src="Untitled.png" alt="Inside's ui">
+    </div>
+  </div>
+
+
+
+
+  <h2 id="services-heading" class="services-heading">Services</h2>
+  <p class="tagline">Revolutionizing collaborative learning and note-sharing for a more efficient academic experience.
+  </p>
+  <div class="grid-container">
+    <div class="grid-item">
+      <h3><i class="fas fa-file-upload"></i> My Notes</h3>
+      <p>Easily upload, update, and manage your personal notes securely.</p>
+    </div>
+    <div class="grid-item">
+      <h3><i class="fas fa-users"></i> Community</h3>
+      <p>Join a collaborative community to share and access notes with ease.</p>
+    </div>
+    <div class="grid-item">
+      <h3><i class="fas fa-pen-alt"></i> Quick Notes</h3>
+      <p>Take spontaneous notes on-the-go using our intuitive interface.</p>
+    </div>
+    <div class="grid-item">
+      <h3><i class="fas fa-tags"></i> Stay organized</h3>
+      <p>Find notes quickly with instant searching.</p>
+    </div>
+    <div class="grid-item">
+      <h3><i class="fas fa-globe-americas"></i> Use it everywhere</h3>
+      <p>Notes stay updated across all your devices, automatically and in real time. There’s no “sync” button: It just
+        works.</p>
+    </div>
+    <div class="grid-item">
+      <h3><i class="fas fa-dollar-sign"></i> It’s free</h3>
+      <p>Backups, syncing, sharing – it’s all completely free.</p>
+    </div>
+  </div>
+
+
+  <footer>
+    <p>&copy; 2024 StudyMate. All rights reserved.</p>
+   
+  </footer>
+
+
+
+  <script>
+    const toggle_btn = document.querySelector('.toggle_btn');
+    const toggleBtnIcon = document.querySelector('.toggle_btn i');
+    const dropDownMenu = document.querySelector('.dropdown_menu');
+    toggle_btn.addEventListener("click", () => {
+      dropDownMenu.classList.toggle('open')
+      const isOpen = dropDownMenu.classList.contains('open')
+      toggleBtnIcon.classList = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'
+    })
+
+    const contactBtn = document.getElementById('contactBtn');
+    const contactBtn2 = document.getElementById('contactBtn2');
+
+    function openContactForm() {
+      dropDownMenu.classList.remove('open');
+      const isOpen = dropDownMenu.classList.contains('open')
+      toggleBtnIcon.classList = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'
+      document.getElementById("contactPopup").style.display = "flex";
+    }
+
+    function closeContactForm() {
+      document.getElementById("contactPopup").style.display = "none";
+    }
+
+    contactBtn.addEventListener("click", function (event) {
+      console.log("Contact button clicked...");
+      event.preventDefault();
+      openContactForm();
+    });
+    contactBtn2.addEventListener("click", function (event) {
+      console.log("Contact button clicked...");
+      event.preventDefault();
+      openContactForm();
+    });
+    const form = document.querySelector('form');
+    const contactPopup = document.getElementById('contactPopup');
+    const thankYouPopup = document.getElementById('thankYouPopup');
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      const formData = new FormData(form);
+      fetch('contactMail.php', {
+        method: 'POST',
+        body: formData
+      })
+        .then(response => response.text())
+        .then(result => {
+          if (result === 'success') {
+            closeContactForm();
+            openThankYouPopup();
+          } else {
+            alert('Error! Unable to send email.');
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('Error! Unable to send email.');
+        });
+    });
+
+    function openThankYouPopup() {
+      console.log("Opening thank you popup...");
+      thankYouPopup.style.display = "flex";
+    }
+    function closeThankYouPopup() {
+      console.log("Closing thank you popup...");
+      thankYouPopup.style.display = "none";
+    }
+
+
+
+
+
+
+
+    document.querySelectorAll('.scroll-link').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+  </script>
+</body>
+
+</html>

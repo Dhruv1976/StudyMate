@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - StudyMate</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .get-started-button {
+            background-color: orange;
+            color: white;
+        }
+        .get-started-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        p{
+            font-size: 20px;
+        }
+        #list1{
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans min-h-screen relative">
+
+    <header class="bg-blue-500 text-white py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">StudyMate</h1>
+            <nav class="hidden sm:flex space-x-4">
+                <ul class="flex space-x-4">
+                    <li><a href="./index.html" class="hover:text-gray-300">Home</a></li>
+                    <li><a href="about.html" class="hover:text-gray-300">About</a></li>
+                    <li><a href="#" class="get-started-button hover:bg-orange-600 py-2 px-4 rounded-full">Get Started</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto mt-8 pb-20">
+        <section class="text-center">
+            <h2 class="text-3xl font-bold mb-4">About StudyMate</h2>
+            <p class="text-lg" style="font-size: 25px;">StudyMate is an innovative platform designed to revolutionize the way students study, collaborate, and prepare for exams.</p>
+            <p class="mt-4">Our mission is to empower students worldwide by providing them with a centralized hub for accessing study materials, connecting with peers, and enhancing their learning experience.</p>
+            <p class="mt-4">With StudyMate, you can:</p>
+            <ul class="list-disc list-inside mt-2">
+                <li id="list1">Share your study notes and materials with classmates</li>
+                <li id="list1">Discover a diverse range of study resources contributed by fellow students</li>
+                <li id="list1">Collaborate with peers by forming study groups and exchanging ideas</li>
+                <li id="list1">Prepare for exams more effectively with curated study materials</li>
+                <li id="list1">Stay organized and track your academic progress</li>
+            </ul>
+            <p class="mt-4">Our platform is built with modern technologies to ensure a seamless user experience. Whether you're a high school student preparing for final exams or a college student tackling complex assignments, StudyMate is here to support you on your academic journey.</p>
+            <p class="mt-4">Join us in revolutionizing the way students learn and excel academically!</p>
+        </section>
+        <div class="hidden sm:flex justify-center mt-8">
+            <a href="#" class="get-started-button hover:bg-orange-600 py-2 px-4 rounded-full">Get Started</a>
+        </div>
+    </main>
+
+    <footer class="bg-blue-500 text-white text-center py-4 absolute bottom-0 w-full">
+        <p>&copy; 2024 StudyMate. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

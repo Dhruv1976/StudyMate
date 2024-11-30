@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudyMate-login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="navstyle.css">
+  <link rel="stylesheet" href="formstyle.css">
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <div class="logo_name">
+        <div class="logo"><img src="logo.png" alt="StudyMate Logo"></div>
+        <div><a href="/studyMate/src/login/index.html" name="logo"> StudyMate </a></div>
+      </div>
+      <ul class="link">
+        <li><a href="/studyMate/src/login/index.html">Home</a></li>
+        <li><a href="#" id="contactBtn">Contact Us</a></li>
+      </ul>
+      <div class="dropdown_menu">
+        <ul>
+          <li><a href="/studyMate/src/login/index.html">Home</a></li>
+          <li><a href="#" id="contactBtn2">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="toggle_btn"><i class="fa-solid fa-bars"></i></div>
+    </div>
+  </header>
+  <!-- =================form ====================== -->
+  <div class="popup-container" id="contactPopup">
+
+    <div class="popup-content" id="contactForm">
+      <span class="close-button" onclick="closeContactForm()"><i class="fa-solid fa-xmark"></i></span>
+      <h2>Contact Us</h2>
+      <form action="php/contactMail.php" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+  <div class="popup-container" id="thankYouPopup" style="display: none;">
+    <div class="popup-content">
+      <h2>Thank you for contacting us!</h2>
+      <p>We will get back to you as soon as possible.</p>
+      <span class="close-button" onclick="closeThankYouPopup()"><i class="fa-solid fa-xmark"></i></span>
+
+    </div>
+  </div>
+  <div class="popup-container" id="tc" style="display: none;">
+    <div class="popup-content" style="max-width: 600px; ">
+      <h2>Terms and Conditions.</h2>
+      <h3>Collection of Information:</h3>
+      <ul style="padding-bottom: 20px;">
+        <li>We may collect personal information such as your name and email address when you sign up for StudyMate.</li>
+      </ul>
+
+      <h3>Sharing of Information:</h3>
+      <ul style="padding-bottom: 20px;">
+        <li>We will not share your personal information with third parties without your consent, except as required by
+          law.</li>
+      </ul>
+
+      <h3>Copyright Compliance for User-Shared Files:</h3>
+      <ul style="padding-bottom: 20px;">
+        <li>All files shared by users into the StudyMate community must be copyright-free and devoid of any pirated
+          content. Users are solely responsible for ensuring that the files they upload comply with copyright laws.
+          StudyMate reserves the right to take appropriate action, including removal of content and suspension of user
+          accounts, in cases where copyrighted material or pirated content is identified. Users bear full legal
+          responsibility for any consequences resulting from the infringement of copyright laws.</li>
+      </ul>
+
+
+      <h3>Changes to Terms and Conditions:</h3>
+      <ul style="padding-bottom: 20px;">
+        <li>We reserve the right to update or change our Terms and Conditions at any time. Your continued use of
+          StudyMate
+          after any such changes indicates your acceptance of the new Privacy Policy.</li>
+      </ul>
+
+      <h3>Contact Us:</h3>
+      <ul style="padding-bottom: 20px;">
+        <li>If you have any questions about this, please contact us.</li>
+      </ul>
+      <span class="close-button" onclick="closetc()"><i class="fa-solid fa-xmark"></i></span>
+    </div>
+  </div>
+  <div class="popup-container" id="Forget" style="display: none;">
+    <div class="popup-content">
+      <span class="close-button" onclick="closeForget()"><i class="fa-solid fa-xmark"></i></span>
+      <h2>Get new password via email</h2>
+      <form action="php/forget.php" method="post">
+        <label for="forgetEmail">Email:</label>
+        <input type="email" id="forgetEmail" name="email" required>
+        <input type="submit" value="Send">
+      </form>
+    </div>
+  </div>
+
+  <!-- =========================================================== -->
+  <div class="form_body">
+
+    <div class="container" id="container">
+
+      <div class="form-container sign-up">
+        <form id="signupForm">
+          <h1>Create Account</h1>
+          <input type="text" placeholder="Name" name="name" required/>
+          <input type="email" placeholder="Email" name="email" required />
+          <input type="password" placeholder="Password" name="password" required/>
+          <div style="color: #777; font-size: 11px;margin: 1em 0;">By clicking Sign Up, you agree to our <a href="#"
+              onclick="opentc()">Terms and condition.</a></div>
+          <div id="signupError" style="color: red;font-size: 12px;"></div>
+          <button type="submit"">Sign Up</button>
+        </form>
+      </div>
+      <div class=" form-container sign-in">
+            <form id="signInForm">
+              <h1>Sign In</h1>
+              <input type="email" placeholder="Email" name="email" />
+              <input type="password" placeholder="Password" name="password" />
+              <div id="loginError" style="color: red;font-size: 12px;"></div>
+              <a href="#" onclick="openForgetPopup()">Forget Your Password?</a>
+              <button>Sign In</button>
+            </form>
+      </div>
+      <div class="toggle-container">
+        <div class="toggle">
+          <div class="toggle-panel toggle-left">
+            <h1>Welcome Back!</h1>
+            <p>Enter your personal details to use all of site features</p>
+            <button class="hidden" id="login">Sign In</button>
+          </div>
+          <div class="toggle-panel toggle-right">
+            <img class="sign-inlogo" src="logo.png">
+            <h1>StudyMate</h1>
+            <p>
+              Register with your personal details to use all of site features
+            </p>
+            <button class="hidden" id="register">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="form.js"></script>
+
+  <script>
+    const signupForm = document.getElementById('signupForm');
+    const signupButton = document.querySelector('.form-container.sign-up button[type="submit"]');
+    const signupError = document.getElementById('signupError'); // Add this line to target the error message element
+
+    signupButton.addEventListener('click', (event) => {
+      event.preventDefault(); 
+
+  
+      const emailInput = signupForm.querySelector('input[name="email"]');
+      const email = emailInput.value.trim();
+      const nameInput = signupForm.querySelector('input[name="name"]');
+      const name = nameInput.value.trim();
+      const passInput = signupForm.querySelector('input[name="password"]');
+      const pass = passInput.value.trim();
+      if (email === ""|| name===""||pass==="") {
+        if(email === ""&& name===""&& pass==="")
+        signupError.textContent = "Please enter valid details.";
+        else if(email === ""&& name==="")
+        signupError.textContent = "Email and Username is required.";
+        else if(email==="")
+        signupError.textContent = "Email is required.";
+        else if(name==="")
+        signupError.textContent = "Username is required.";
+        else if(pass==="")
+        signupError.textContent = "Password is required.";
+        
+        
+        return; 
+      }
+      
+
+    
+
+      const formData = new FormData(signupForm);
+      fetch('php/register.php', {
+        method: 'POST',
+        body: formData
+      })
+        .then(response => response.text())
+        .then(result => {
+          // Handle the response
+          if (result.trim() === 'success') {
+            window.location.href = 'php/redirect.php';
+          } else {
+            signupError.textContent = result;
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          signupError.textContent = 'Error! Unable to sign up. Please try again later.';
+        });
+    });
+  </script>
+
+
+  <!-- ====================================== -->
+  <script>
+    const toggle_btn = document.querySelector('.toggle_btn');
+    const toggleBtnIcon = document.querySelector('.toggle_btn i');
+    const dropDownMenu = document.querySelector('.dropdown_menu');
+    toggle_btn.addEventListener("click", () => {
+      dropDownMenu.classList.toggle('open')
+      const isOpen = dropDownMenu.classList.contains('open')
+      toggleBtnIcon.classList = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'
+    })
+
+    const signInForm = document.getElementById('signInForm');
+    const loginError = document.getElementById('loginError');
+
+    signInForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      const formData = new FormData(signInForm);
+      fetch('php/login.php', {
+        method: 'POST',
+        body: formData
+      })
+        .then(response => response.text())
+        .then(result => {
+          if (result.trim() === '*Incorrect username or password.') {
+            loginError.textContent = ''; // Clear any previous error messages
+            loginError.textContent = result; // Append new error message
+          } else if (result.trim() === '*User not found') {
+            loginError.textContent = ''; // Clear any previous error messages
+            loginError.textContent = result;
+          }
+          else if (result.trim() === 'success') {
+            window.location.href = 'php/redirect.php'
+          }
+
+        })
+
+    });
+
+
+
+    const contactBtn = document.getElementById('contactBtn');
+    const contactBtn2 = document.getElementById('contactBtn2');
+
+    function openContactForm() {
+      dropDownMenu.classList.remove('open');
+      const isOpen = dropDownMenu.classList.contains('open')
+      toggleBtnIcon.classList = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'
+      document.getElementById("contactPopup").style.display = "flex";
+    }
+
+    function closeContactForm() {
+      document.getElementById("contactPopup").style.display = "none";
+    }
+
+    contactBtn.addEventListener("click", function (event) {
+      if (event.target === contactBtn) { // Check if the clicked element is the contact button
+    console.log("Contact button clicked...");
+    event.preventDefault();
+    openContactForm();
+  }
+    });
+    contactBtn2.addEventListener("click", function (event) {
+      console.log("Contact button clicked...");
+      event.preventDefault();
+      openContactForm();
+    });
+    const form = document.querySelector('form');
+    const contactPopup = document.getElementById('contactPopup');
+    const thankYouPopup = document.getElementById('thankYouPopup');
+    const tc = document.getElementById('tc');
+    function opentc() {
+      tc.style.display = "flex";
+    }
+    function closetc() {
+      tc.style.display = "none";
+    }
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      const formData = new FormData(form);
+      fetch('php/contactMail.php', {
+        method: 'POST',
+        body: formData
+      })
+        .then(response => response.text())
+        .then(result => {
+          if (result === 'success') {
+            closeContactForm();
+            openThankYouPopup();
+          } else {
+            alert('Error! Unable to send email.');
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('Error! Unable to send email.');
+        });
+    });
+
+    function openThankYouPopup() {
+      console.log("Opening thank you popup...");
+      thankYouPopup.style.display = "flex";
+    }
+    function closeThankYouPopup() {
+      console.log("Closing thank you popup...");
+      thankYouPopup.style.display = "none";
+    }
+
+
+
+    function openForgetPopup() {
+      const isForgetLinkClicked = event.target === forgetPasswordLink;
+
+  // Only open the forget password popup if it's not triggered by the forget password link
+  if (!isForgetLinkClicked) {
+    document.getElementById("Forget").style.display = "flex";
+  }
+    }
+
+
+    function closeForgetPopup() {
+      document.getElementById("Forget").style.display = "none";
+    }
+
+    const forgetPasswordLink = document.querySelector('a[href="#"]');
+    forgetPasswordLink.addEventListener('click', function (event) {
+      event.preventDefault();
+      openForgetPopup();
+    });
+
+
+    const forgetForm = document.querySelector('#Forget form');
+    forgetForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      const formData = new FormData(forgetForm);
+      fetch('php/forget.php', {
+        method: 'POST',
+        body: formData
+      })
+        .then(response => response.text())
+        .then(result => {
+          alert(result); // Display the result message
+          if (result === 'Password reset email has been sent to your email address.') {
+            closeForgetPopup(); // Close the popup if the email was sent successfully
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('Error! Unable to process your request.');
+        });
+    });
+
+    function closeForget() {
+      closeForgetPopup();
+    }
+
+    function closeForget() {
+      closeForgetPopup();
+    }
+  </script>
+
+
+</body>
+
+</html>
